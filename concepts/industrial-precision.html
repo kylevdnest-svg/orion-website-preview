@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Industrial Precision homepage design direction for Orion Broking Solutions.">
+  <title>Orion Broking Solutions — Industrial Precision</title>
+</head>
+<body style="margin:0">
+<div id="orion-industrial-precision">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@400;500&display=swap');
+
+    #orion-industrial-precision {
+      --navy: #071422;
+      --navy-2: #0b1c2d;
+      --graphite: #17212b;
+      --warm: #f5f2eb;
+      --paper: #fbfaf6;
+      --ink: #101a24;
+      --muted: #66717b;
+      --purple: #7656d6;
+      --purple-light: #a78cf3;
+      --line: rgba(245, 242, 235, 0.16);
+      margin: 0;
+      color: var(--ink);
+      background: var(--warm);
+      font-family: "DM Sans", Arial, sans-serif;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    #orion-industrial-precision * { box-sizing: border-box; }
+    #orion-industrial-precision a { color: inherit; text-decoration: none; }
+    #orion-industrial-precision button { font: inherit; }
+
+    #orion-industrial-precision .ip-shell {
+      width: min(100%, 1600px);
+      margin: 0 auto;
+      background: var(--warm);
+    }
+
+    #orion-industrial-precision .ip-hero {
+      position: relative;
+      min-height: 660px;
+      padding: 0 clamp(28px, 5.5vw, 88px);
+      color: var(--warm);
+      background:
+        linear-gradient(110deg, rgba(7,20,34,.98) 0%, rgba(7,20,34,.96) 53%, rgba(11,28,45,.88) 100%),
+        radial-gradient(circle at 86% 18%, rgba(118,86,214,.2), transparent 30%);
+      isolation: isolate;
+    }
+
+    #orion-industrial-precision .ip-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 96px 96px;
+      mask-image: linear-gradient(90deg, transparent 0, #000 32%, #000 100%);
+    }
+
+    #orion-industrial-precision .ip-header {
+      position: relative;
+      z-index: 3;
+      height: 94px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #orion-industrial-precision .ip-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: "Manrope", sans-serif;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    #orion-industrial-precision .ip-mark {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(245,242,235,.7);
+      border-radius: 50%;
+    }
+
+    #orion-industrial-precision .ip-mark::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      left: 16px;
+      top: 16px;
+      border-radius: 50%;
+      background: var(--purple-light);
+      box-shadow: 0 0 0 5px rgba(167,140,243,.14);
+    }
+
+    #orion-industrial-precision .ip-mark::after {
+      content: "";
+      position: absolute;
+      width: 45px;
+      height: 14px;
+      left: -6px;
+      top: 10px;
+      border: 1px solid var(--purple-light);
+      border-radius: 50%;
+      transform: rotate(-24deg);
+    }
+
+    #orion-industrial-precision .ip-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 13px;
+    }
+
+    #orion-industrial-precision .ip-nav a:not(.ip-nav-cta) { color: rgba(245,242,235,.72); }
+    #orion-industrial-precision .ip-nav a:hover { color: var(--warm); }
+    #orion-industrial-precision .ip-nav-cta {
+      padding: 12px 18px;
+      border: 1px solid rgba(245,242,235,.4);
+      transition: background .2s ease, color .2s ease;
+    }
+    #orion-industrial-precision .ip-nav-cta:hover { background: var(--warm); color: var(--navy); }
+
+    #orion-industrial-precision .ip-hero-grid {
+      min-height: 565px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 130px);
+      padding: 68px 0 84px;
+    }
+
+    #orion-industrial-precision .ip-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 25px;
+      color: var(--purple-light);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .18em;
+    }
+
+    #orion-industrial-precision .ip-eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    #orion-industrial-precision h1 {
+      max-width: 790px;
+      margin: 0;
+      color: var(--paper);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(48px, 5vw, 78px);
+      font-weight: 400;
+      line-height: 1.01;
+      letter-spacing: -.055em;
+    }
+
+    #orion-industrial-precision .ip-lead {
+      max-width: 650px;
+      margin: 27px 0 35px;
+      color: rgba(245,242,235,.68);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    #orion-industrial-precision .ip-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    #orion-industrial-precision .ip-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 23px;
+      border: 1px solid rgba(245,242,235,.35);
+      color: var(--warm);
+      font-size: 13px;
+      font-weight: 500;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    #orion-industrial-precision .ip-btn:hover { transform: translateY(-2px); border-color: var(--warm); }
+    #orion-industrial-precision .ip-btn-primary { background: var(--purple); border-color: var(--purple); }
+    #orion-industrial-precision .ip-btn-primary::after { content: "\2197"; margin-left: 16px; font-size: 16px; }
+
+    #orion-industrial-precision .ip-orbit-stage {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+    }
+
+    #orion-industrial-precision .ip-orbit {
+      position: absolute;
+      border: 1px solid rgba(245,242,235,.19);
+      border-radius: 50%;
+      transform: rotate(-25deg);
+    }
+    #orion-industrial-precision .ip-orbit-one { width: 390px; height: 190px; }
+    #orion-industrial-precision .ip-orbit-two { width: 310px; height: 310px; border-color: rgba(118,86,214,.38); transform: rotate(27deg); }
+    #orion-industrial-precision .ip-orbit-three { width: 190px; height: 390px; transform: rotate(62deg); }
+    #orion-industrial-precision .ip-core {
+      width: 102px;
+      height: 102px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(245,242,235,.38);
+      border-radius: 50%;
+      background: rgba(7,20,34,.72);
+      box-shadow: 0 0 0 18px rgba(118,86,214,.07), 0 0 70px rgba(118,86,214,.18);
+      color: var(--paper);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .14em;
+    }
+    #orion-industrial-precision .ip-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 2px solid var(--navy-2);
+      border-radius: 50%;
+      background: var(--purple-light);
+      box-shadow: 0 0 0 6px rgba(167,140,243,.1);
+    }
+    #orion-industrial-precision .ip-n1 { top: 66px; right: 78px; }
+    #orion-industrial-precision .ip-n2 { bottom: 68px; left: 52px; }
+    #orion-industrial-precision .ip-n3 { top: 173px; left: 2px; background: var(--warm); }
+    #orion-industrial-precision .ip-micro {
+      position: absolute;
+      right: 2px;
+      bottom: 21px;
+      width: 175px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: rgba(245,242,235,.48);
+      font-size: 10px;
+      line-height: 1.55;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    #orion-industrial-precision .ip-trust {
+      min-height: 104px;
+      display: grid;
+      grid-template-columns: 1.35fr repeat(3, 1fr);
+      padding: 0 clamp(28px, 5.5vw, 88px);
+      background: var(--purple);
+      color: white;
+    }
+    #orion-industrial-precision .ip-trust-label,
+    #orion-industrial-precision .ip-trust-item {
+      display: flex;
+      align-items: center;
+      border-right: 1px solid rgba(255,255,255,.16);
+    }
+    #orion-industrial-precision .ip-trust-label { font-size: 11px; letter-spacing: .16em; }
+    #orion-industrial-precision .ip-trust-item { gap: 14px; padding-left: clamp(18px, 3vw, 42px); font-size: 13px; }
+    #orion-industrial-precision .ip-trust-item:last-child { border-right: 0; }
+    #orion-industrial-precision .ip-trust-item strong { font-family: "Manrope", sans-serif; font-size: 26px; font-weight: 400; }
+    #orion-industrial-precision .ip-trust-item span { max-width: 110px; color: rgba(255,255,255,.78); line-height: 1.3; }
+
+    #orion-industrial-precision .ip-services {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(55px, 8vw, 130px);
+      padding: 74px clamp(28px, 5.5vw, 88px) 78px;
+      background: var(--warm);
+    }
+    #orion-industrial-precision .ip-section-kicker { margin: 0 0 18px; color: var(--purple); font-size: 11px; font-weight: 500; letter-spacing: .16em; }
+    #orion-industrial-precision h2 { margin: 0; font-family: "Manrope", sans-serif; font-size: clamp(34px, 3.2vw, 50px); font-weight: 400; line-height: 1.08; letter-spacing: -.045em; }
+    #orion-industrial-precision .ip-section-copy { max-width: 415px; margin: 20px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+
+    #orion-industrial-precision .ip-service-list { border-top: 1px solid rgba(16,26,36,.22); }
+    #orion-industrial-precision .ip-service-row {
+      min-height: 67px;
+      display: grid;
+      grid-template-columns: 50px 1fr 28px;
+      align-items: center;
+      border-bottom: 1px solid rgba(16,26,36,.18);
+      transition: padding .2s ease, color .2s ease;
+    }
+    #orion-industrial-precision .ip-service-row:hover { padding-left: 8px; color: var(--purple); }
+    #orion-industrial-precision .ip-index { color: var(--purple); font-size: 11px; }
+    #orion-industrial-precision .ip-service-name { font-family: "Manrope", sans-serif; font-size: 18px; }
+    #orion-industrial-precision .ip-service-arrow { font-size: 18px; }
+
+    #orion-industrial-precision .ip-partners {
+      display: grid;
+      grid-template-columns: .75fr repeat(5, 1fr);
+      align-items: center;
+      min-height: 105px;
+      padding: 0 clamp(28px, 5.5vw, 88px);
+      background: var(--paper);
+      border-top: 1px solid rgba(16,26,36,.12);
+      color: #73808a;
+    }
+    #orion-industrial-precision .ip-partners-label { font-size: 10px; letter-spacing: .14em; color: var(--muted); }
+    #orion-industrial-precision .ip-partner {
+      display: grid;
+      place-items: center;
+      min-height: 42px;
+      border-left: 1px solid rgba(16,26,36,.12);
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .03em;
+      filter: grayscale(1);
+    }
+
+    @media (max-width: 900px) {
+      #orion-industrial-precision .ip-nav a:not(.ip-nav-cta) { display: none; }
+      #orion-industrial-precision .ip-hero-grid { grid-template-columns: 1fr; padding-top: 72px; }
+      #orion-industrial-precision .ip-orbit-stage { min-height: 310px; transform: scale(.82); margin: -25px 0; }
+      #orion-industrial-precision .ip-trust { grid-template-columns: 1fr 1fr; }
+      #orion-industrial-precision .ip-trust-label { padding: 22px 0; }
+      #orion-industrial-precision .ip-trust-item { min-height: 88px; border-top: 1px solid rgba(255,255,255,.16); }
+      #orion-industrial-precision .ip-services { grid-template-columns: 1fr; }
+      #orion-industrial-precision .ip-partners { grid-template-columns: repeat(3, 1fr); padding-top: 20px; padding-bottom: 20px; gap: 18px 0; }
+      #orion-industrial-precision .ip-partners-label { grid-column: 1/-1; }
+    }
+
+    @media (max-width: 560px) {
+      #orion-industrial-precision .ip-header { height: 78px; }
+      #orion-industrial-precision .ip-brand { font-size: 17px; }
+      #orion-industrial-precision .ip-nav-cta { padding: 10px 12px; font-size: 11px; }
+      #orion-industrial-precision .ip-hero-grid { padding: 54px 0 64px; }
+      #orion-industrial-precision h1 { font-size: 43px; }
+      #orion-industrial-precision .ip-lead { font-size: 15px; }
+      #orion-industrial-precision .ip-actions { flex-direction: column; align-items: stretch; }
+      #orion-industrial-precision .ip-orbit-stage { display: none; }
+      #orion-industrial-precision .ip-trust { grid-template-columns: 1fr; padding-top: 20px; padding-bottom: 20px; }
+      #orion-industrial-precision .ip-trust-label, #orion-industrial-precision .ip-trust-item { min-height: 68px; border-right: 0; }
+      #orion-industrial-precision .ip-trust-item { padding-left: 0; }
+      #orion-industrial-precision .ip-services { padding-top: 58px; }
+      #orion-industrial-precision .ip-partners { grid-template-columns: 1fr 1fr; }
+      #orion-industrial-precision .ip-service-row { grid-template-columns: 36px 1fr 22px; }
+      #orion-industrial-precision .ip-service-name { font-size: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #orion-industrial-precision * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+
+  <main class="ip-shell">
+    <section class="ip-hero">
+      <header class="ip-header">
+        <a class="ip-brand" href="#" aria-label="Orion Broking Solutions home">
+          <span class="ip-mark" aria-hidden="true"></span>
+          <span>Orion Broking Solutions</span>
+        </a>
+        <nav class="ip-nav" aria-label="Primary navigation">
+          <a href="#solutions">Solutions</a>
+          <a href="#about">Why Orion</a>
+          <a href="#partners">Partners</a>
+          <a class="ip-nav-cta" href="#contact">Contact us</a>
+        </nav>
+      </header>
+
+      <div class="ip-hero-grid">
+        <div class="ip-copy">
+          <p class="ip-eyebrow">SPECIALIST COMMERCIAL RISK</p>
+          <h1>Commercial risk cover built for businesses in motion.</h1>
+          <p class="ip-lead">Tailored insurance solutions for fleets, transport, motor trade, construction, engineering and complex liability risks.</p>
+          <div class="ip-actions">
+            <a class="ip-btn ip-btn-primary" href="#contact">Discuss Your Risk Profile</a>
+            <a class="ip-btn" href="#solutions">Explore Commercial Cover</a>
+          </div>
+        </div>
+
+        <div class="ip-orbit-stage" aria-label="Abstract connected risk network motif">
+          <span class="ip-orbit ip-orbit-one"></span>
+          <span class="ip-orbit ip-orbit-two"></span>
+          <span class="ip-orbit ip-orbit-three"></span>
+          <span class="ip-core">ORION</span>
+          <span class="ip-node ip-n1"></span>
+          <span class="ip-node ip-n2"></span>
+          <span class="ip-node ip-n3"></span>
+          <span class="ip-micro">Structured protection<br>for complex operations</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ip-trust" aria-label="Orion credentials">
+      <div class="ip-trust-label">BUILT ON EXPERIENCE</div>
+      <div class="ip-trust-item"><strong>40+</strong><span>Years of expertise</span></div>
+      <div class="ip-trust-item"><strong>FSP</strong><span>27667</span></div>
+      <div class="ip-trust-item"><strong>01</strong><span>Personal claims support</span></div>
+    </section>
+
+    <section class="ip-services" id="solutions">
+      <div>
+        <p class="ip-section-kicker">COMMERCIAL COVER</p>
+        <h2>Risk solutions,<br>structured precisely.</h2>
+        <p class="ip-section-copy">Focused cover for the assets, people and liabilities that keep complex commercial operations moving.</p>
+      </div>
+      <div class="ip-service-list">
+        <a class="ip-service-row" href="#fleet"><span class="ip-index">01</span><span class="ip-service-name">Fleet &amp; Transport</span><span class="ip-service-arrow">↗</span></a>
+        <a class="ip-service-row" href="#motor-trade"><span class="ip-index">02</span><span class="ip-service-name">Motor Trade</span><span class="ip-service-arrow">↗</span></a>
+        <a class="ip-service-row" href="#construction"><span class="ip-index">03</span><span class="ip-service-name">Construction &amp; Engineering</span><span class="ip-service-arrow">↗</span></a>
+        <a class="ip-service-row" href="#business"><span class="ip-index">04</span><span class="ip-service-name">Business Protection</span><span class="ip-service-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="ip-partners" id="partners" aria-label="Trusted insurance partners">
+      <div class="ip-partners-label">TRUSTED INSURANCE PARTNERS</div>
+      <div class="ip-partner">PARTNER 01</div>
+      <div class="ip-partner">PARTNER 02</div>
+      <div class="ip-partner">PARTNER 03</div>
+      <div class="ip-partner">PARTNER 04</div>
+      <div class="ip-partner">PARTNER 05</div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

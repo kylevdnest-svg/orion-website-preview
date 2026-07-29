@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A logo-led homepage concept for Orion Broking Solutions, focused on commercial and fleet insurance.">
+  <title>Orion Broking Solutions — Heritage Orbit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap');
+
+    :root {
+      --navy: #071625;
+      --navy-soft: #10263a;
+      --ink: #132232;
+      --muted: #637080;
+      --paper: #fbfaf7;
+      --mist: #eef1f5;
+      --silver: #d7dbe1;
+      --magenta: #b329ae;
+      --blue: #86a5db;
+      --line: rgba(19, 34, 50, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .page { min-height: 100vh; overflow: hidden; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+    .site-header {
+      position: absolute;
+      inset: 18px 0 auto;
+      z-index: 10;
+      color: var(--ink);
+    }
+
+    .nav {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 0 22px 0 18px;
+      border: 1px solid rgba(255, 255, 255, .62);
+      border-radius: 16px;
+      background: rgba(250, 250, 249, .92);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .18);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      width: 210px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .brand img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 69px;
+      object-fit: contain;
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 13px; color: #586575; }
+    .nav-links a:hover { color: var(--magenta); }
+    .nav-cta { padding: 13px 19px; border: 1px solid var(--navy); border-radius: 4px; background: var(--navy); color: white; }
+    .nav-links .nav-cta:hover { background: var(--magenta); border-color: var(--magenta); color: white; }
+    .menu-label { display: none; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        radial-gradient(circle at 82% 42%, rgba(179,41,174,.32), transparent 23%),
+        radial-gradient(circle at 68% 80%, rgba(134,165,219,.2), transparent 30%),
+        linear-gradient(115deg, #04111e 0%, #081b2d 54%, #132e49 100%);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .45;
+      background-image: radial-gradient(rgba(255,255,255,.5) .65px, transparent .65px);
+      background-size: 37px 37px;
+      mask-image: linear-gradient(90deg, transparent, #000 58%, #000);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 760px;
+      height: 760px;
+      right: -290px;
+      bottom: -420px;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      box-shadow: 0 0 0 100px rgba(255,255,255,.025), 0 0 0 220px rgba(255,255,255,.018);
+    }
+
+    .hero-grid {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, .85fr);
+      align-items: center;
+      gap: clamp(56px, 8vw, 120px);
+      padding-top: 110px;
+    }
+
+    .eyebrow { margin: 0 0 22px; color: #c8d5eb; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0; font-family: "Manrope", sans-serif; font-size: clamp(48px, 6vw, 78px); font-weight: 400; line-height: 1.02; letter-spacing: -.055em; }
+    h1 span { color: #c89ad4; }
+    .hero-copy { max-width: 620px; margin: 28px 0 34px; color: rgba(255,255,255,.68); font-size: 17px; line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 23px; border: 1px solid rgba(255,255,255,.35); font-size: 13px; font-weight: 600; transition: .2s ease; }
+    .button:hover { transform: translateY(-2px); border-color: white; }
+    .button-primary { background: var(--magenta); border-color: var(--magenta); }
+    .button-primary::after { content: "↗"; margin-left: 18px; }
+
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 46px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+    .proof-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.55); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .proof-item::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #d8a9de; box-shadow: 0 0 0 5px rgba(216,169,222,.1); }
+
+    .logo-stage { position: relative; min-height: 500px; display: grid; place-items: center; }
+    .logo-card {
+      position: relative;
+      z-index: 2;
+      width: min(110%, 580px);
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      padding: 74px 24px 62px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,.98) 0 36%, rgba(239,242,247,.9) 50%, rgba(255,255,255,0) 73%);
+      filter: drop-shadow(0 38px 40px rgba(0,0,0,.25));
+      animation: float-mark 6s ease-in-out infinite;
+    }
+    .logo-card::after { content: "COMMERCIAL RISK • FLEET • ENGINEERING"; position: absolute; bottom: 52px; color: #6d7785; font-size: 9px; font-weight: 600; letter-spacing: .22em; text-align: center; }
+    .logo-card img { width: 92%; }
+    .orbit { position: absolute; width: 590px; height: 250px; border: 1px solid rgba(134,165,219,.3); border-radius: 50%; transform: rotate(-18deg); }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border-radius: 50%; }
+    .orbit::before { inset: 36px 74px; border: 1px solid rgba(179,41,174,.28); }
+    .orbit::after { width: 8px; height: 8px; right: 62px; top: 49px; background: #d3a8df; box-shadow: 0 0 0 7px rgba(211,168,223,.1); }
+
+    .risk-chip { position: absolute; z-index: 3; padding: 10px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(7,22,37,.7); color: rgba(255,255,255,.78); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; backdrop-filter: blur(10px); }
+    .risk-chip-one { top: 60px; left: -10px; }
+    .risk-chip-two { right: -12px; bottom: 94px; }
+
+    @keyframes float-mark { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .signal { background: var(--magenta); color: white; }
+    .signal-grid { min-height: 110px; display: grid; grid-template-columns: 1.25fr repeat(3, 1fr); }
+    .signal-item { display: flex; flex-direction: column; justify-content: center; padding: 24px 28px; border-left: 1px solid rgba(255,255,255,.2); }
+    .signal-item:first-child { border-left: 0; padding-left: 0; }
+    .signal-label { color: rgba(255,255,255,.66); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    .signal-value { margin-top: 7px; font-family: "Manrope", sans-serif; font-size: 17px; }
+
+    .section { padding: 108px 0; }
+    .section-head { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: end; margin-bottom: 54px; }
+    .section-kicker { margin: 0; color: var(--magenta); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    h2 { max-width: 730px; margin: 0; font-family: "Manrope", sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 400; line-height: 1.08; letter-spacing: -.04em; }
+
+    .services { background: var(--paper); }
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .service { position: relative; min-height: 238px; padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: white; box-shadow: 0 12px 30px rgba(7,22,37,.045); overflow: hidden; transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease; }
+    .service::after { content: "↗"; position: absolute; right: 24px; bottom: 22px; color: #a8b0bb; font-size: 16px; }
+    .service:hover { transform: translateY(-7px); background: var(--navy); color: white; box-shadow: 0 25px 48px rgba(7,22,37,.16); }
+    .service-no { color: var(--magenta); font-size: 11px; font-weight: 600; }
+    .service h3 { max-width: 200px; margin: 58px 0 13px; font-family: "Manrope", sans-serif; font-size: 19px; font-weight: 500; line-height: 1.22; }
+    .service p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .service:hover p { color: rgba(255,255,255,.6); }
+    .service:hover::after { color: #d8a9de; }
+
+    .method { background: var(--mist); }
+    .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 86px; align-items: center; }
+    .method-panel { padding: 48px; background: var(--navy); color: white; }
+    .method-panel h2 { font-size: clamp(32px, 3.5vw, 48px); }
+    .method-panel > p { margin: 23px 0 36px; color: rgba(255,255,255,.65); line-height: 1.7; }
+    .steps { display: grid; gap: 1px; background: rgba(255,255,255,.13); }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 20px; background: var(--navy); }
+    .step-no { color: #d8a9de; font-size: 11px; }
+    .step strong { display: block; margin-bottom: 5px; font-size: 14px; }
+    .step span { color: rgba(255,255,255,.54); font-size: 12px; line-height: 1.5; }
+    .method-copy p { color: var(--muted); line-height: 1.75; }
+    .ticks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin-top: 30px; }
+    .tick { padding: 15px 0; border-top: 1px solid var(--line); font-size: 13px; }
+    .tick::before { content: "•"; margin-right: 10px; color: var(--magenta); }
+
+    .partners { padding: 55px 0; background: white; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .partner-row { display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); align-items: center; gap: 18px; }
+    .partner-intro { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .partner-slot { height: 62px; display: grid; place-items: center; border: 1px dashed #c9ced5; color: #7d8793; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .contact { background: var(--navy); color: white; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; }
+    .contact h2 { margin-top: 16px; }
+    .contact-copy { margin-top: 24px; color: rgba(255,255,255,.62); line-height: 1.7; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 28px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: rgba(255,255,255,.055); box-shadow: 0 28px 70px rgba(0,0,0,.16); }
+    .field { width: 100%; min-height: 52px; padding: 0 15px; border: 1px solid rgba(255,255,255,.18); border-radius: 0; outline: 0; background: rgba(255,255,255,.05); color: white; }
+    .field::placeholder { color: rgba(255,255,255,.46); }
+    .field:focus { border-color: #d8a9de; }
+    textarea.field { min-height: 112px; padding-top: 15px; resize: vertical; }
+    .wide { grid-column: 1 / -1; }
+    .submit { min-height: 54px; border: 0; background: var(--magenta); color: white; font-weight: 600; cursor: pointer; }
+
+    footer { padding: 30px 0; background: #05111d; color: rgba(255,255,255,.48); font-size: 11px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+    @media (max-width: 980px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .menu-label { display: block; }
+      .hero { min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; padding: 170px 0 80px; }
+      .logo-stage { min-height: 360px; }
+      .orbit { width: 540px; }
+      .signal-grid { grid-template-columns: 1fr 1fr; }
+      .signal-item:first-child { padding-left: 28px; }
+      .signal-item:nth-child(3) { border-left: 0; }
+      .section-head, .method-grid, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .partner-row { grid-template-columns: 1fr 1fr; }
+      .partner-intro { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 32px, 1180px); }
+      .nav { height: 80px; }
+      .site-header { inset: 10px 0 auto; }
+      .nav { height: 72px; padding: 0 14px; border-radius: 11px; }
+      .brand { width: 145px; height: 62px; padding: 0; }
+      .brand img { max-height: 58px; }
+      .nav-cta { display: none; }
+      .hero-grid { padding-top: 132px; gap: 38px; }
+      h1 { font-size: clamp(42px, 13vw, 58px); }
+      .hero-copy { font-size: 15px; }
+      .logo-stage { min-height: 265px; }
+      .logo-card { min-height: 300px; padding: 45px 8px 42px; }
+      .logo-card::after { bottom: 31px; font-size: 7px; letter-spacing: .14em; }
+      .orbit { width: 370px; height: 170px; }
+      .risk-chip { display: none; }
+      .signal-grid, .service-grid, .partner-row, .contact-form { grid-template-columns: 1fr; }
+      .signal-item, .signal-item:first-child, .signal-item:nth-child(3) { min-height: 90px; padding: 20px 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.18); }
+      .signal-item:first-child { border-top: 0; }
+      .section { padding: 78px 0; }
+      .service { min-height: 190px; }
+      .service h3 { margin-top: 38px; }
+      .method-panel { padding: 30px 22px; }
+      .ticks { grid-template-columns: 1fr; }
+      .partner-intro { grid-column: auto; }
+      .wide { grid-column: auto; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="Orion Broking Solutions home">
+          <img src="../brand/orion-logo-hq.png" alt="Orion Broking Solutions (Pty) Ltd.">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#services">Solutions</a>
+          <a href="#approach">Our approach</a>
+          <a href="#partners">Partners</a>
+          <a class="nav-cta" href="#contact">Request a consultation</a>
+          <span class="menu-label">Menu</span>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Commercial insurance, properly considered</p>
+          <h1>Protection built around the way <span>your business moves.</span></h1>
+          <p class="hero-copy">Orion Broking Solutions helps South African businesses understand, manage and insure complex commercial, industrial and fleet risks—with responsive advice and cover shaped around the operation.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#contact">Talk to a broker</a>
+            <a class="button" href="#services">Explore our solutions</a>
+          </div>
+          <div class="hero-proof" aria-label="Service benefits">
+            <span class="proof-item">Tailored cover</span>
+            <span class="proof-item">Direct broker access</span>
+            <span class="proof-item">Claims support</span>
+          </div>
+        </div>
+        <div class="logo-stage" aria-label="Orion Broking Solutions brand mark">
+          <div class="orbit" aria-hidden="true"></div>
+          <span class="risk-chip risk-chip-one">Built for business</span>
+          <span class="risk-chip risk-chip-two">Broker-led advice</span>
+          <div class="logo-card">
+            <img src="../brand/orion-logo-hq.png" alt="Orion Broking Solutions (Pty) Ltd.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal" aria-label="Orion service highlights">
+      <div class="wrap signal-grid">
+        <div class="signal-item"><span class="signal-label">Primary focus</span><span class="signal-value">Commercial &amp; industrial risk</span></div>
+        <div class="signal-item"><span class="signal-label">Fleet expertise</span><span class="signal-value">Motor &amp; HCV</span></div>
+        <div class="signal-item"><span class="signal-label">Advice</span><span class="signal-value">Broker-led</span></div>
+        <div class="signal-item"><span class="signal-label">Service</span><span class="signal-value">Built around your risk</span></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-kicker">Core expertise</p>
+          <h2>Cover for the risks that keep businesses moving.</h2>
+        </div>
+        <div class="service-grid">
+          <article class="service"><span class="service-no">01</span><h3>Commercial &amp; Industrial Risks</h3><p>Risk solutions aligned to property, operations and business continuity.</p></article>
+          <article class="service"><span class="service-no">02</span><h3>Motor Fleet</h3><p>Flexible protection for vehicles, drivers and day-to-day fleet exposure.</p></article>
+          <article class="service"><span class="service-no">03</span><h3>HCV Fleet</h3><p>Specialist cover for heavy commercial vehicles and transport operations.</p></article>
+          <article class="service"><span class="service-no">04</span><h3>Motor Trade Risk Insurance</h3><p>Protection designed for dealerships, workshops and motor trade businesses.</p></article>
+          <article class="service"><span class="service-no">05</span><h3>Goods in Transit</h3><p>Cover for goods while moving through your supply and delivery chain.</p></article>
+          <article class="service"><span class="service-no">06</span><h3>Contractors All Risks</h3><p>Project-focused protection for contract works, plant and third-party risks.</p></article>
+          <article class="service"><span class="service-no">07</span><h3>Engineering Risks</h3><p>Specialist protection for machinery, equipment and technical exposures.</p></article>
+          <article class="service"><span class="service-no">08</span><h3>Specialised Liabilities</h3><p>Tailored liability solutions for complex professional and operational risks.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method" id="approach">
+      <div class="wrap method-grid">
+        <div class="method-panel">
+          <p class="section-kicker">How Orion works</p>
+          <h2>Clarity before cover.</h2>
+          <p>A sound insurance programme begins with understanding the operation—not simply selecting a policy.</p>
+          <div class="steps">
+            <div class="step"><span class="step-no">01</span><div><strong>Understand</strong><span>We learn how the business, assets and people operate.</span></div></div>
+            <div class="step"><span class="step-no">02</span><div><strong>Structure</strong><span>We identify exposures and shape an appropriate solution.</span></div></div>
+            <div class="step"><span class="step-no">03</span><div><strong>Support</strong><span>We stay available when circumstances change or claims happen.</span></div></div>
+          </div>
+        </div>
+        <div class="method-copy">
+          <p class="section-kicker">More than a policy</p>
+          <h2>Insurance advice with a commercial point of view.</h2>
+          <p>Orion’s role is to make complex risk easier to understand. The result is a practical insurance programme that supports the organisation rather than getting in its way.</p>
+          <div class="ticks">
+            <div class="tick">Business-specific assessment</div>
+            <div class="tick">Clear cover comparisons</div>
+            <div class="tick">Responsive broker support</div>
+            <div class="tick">Claims guidance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" id="partners">
+      <div class="wrap partner-row">
+        <div class="partner-intro">Approved insurer and partner marks can be placed here once the final source files are collected.</div>
+        <div class="partner-slot">Partner logo</div>
+        <div class="partner-slot">Partner logo</div>
+        <div class="partner-slot">Partner logo</div>
+        <div class="partner-slot">Partner logo</div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="section-kicker">Start a conversation</p>
+          <h2>Let’s look at the risks behind the business.</h2>
+          <p class="contact-copy">Tell us what you need help protecting. An Orion broker can contact you to discuss the operation and the next practical step.</p>
+        </div>
+        <form class="contact-form">
+          <input class="field" type="text" name="name" placeholder="Name" aria-label="Name">
+          <input class="field" type="text" name="company" placeholder="Company" aria-label="Company">
+          <input class="field" type="email" name="email" placeholder="Email address" aria-label="Email address">
+          <input class="field" type="tel" name="phone" placeholder="Contact number" aria-label="Contact number">
+          <select class="field wide" name="interest" aria-label="Insurance need">
+            <option value="">What do you need help with?</option>
+            <option>Commercial &amp; Industrial Risks</option><option>Motor Fleet</option><option>HCV Fleet</option><option>Motor Trade Risk Insurance</option><option>Goods in Transit</option><option>Contractors All Risks</option><option>Engineering Risks</option><option>Specialised Liabilities</option>
+          </select>
+          <textarea class="field wide" name="message" placeholder="Tell us briefly about your requirements" aria-label="Requirements"></textarea>
+          <button class="submit wide" type="button">Request a consultation</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap footer-row"><span>Orion Broking Solutions (Pty) Ltd.</span><span>Concept page — contact and compliance details to be confirmed</span></div>
+    </footer>
+  </main>
+</body>
+</html>
